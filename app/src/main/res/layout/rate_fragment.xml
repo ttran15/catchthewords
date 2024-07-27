@@ -3,14 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="#ffecf2">
 
     <TextView
         android:id="@+id/ratingHeaderTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="40dp"
         android:text="Rate Us"
+        android:textStyle="bold"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -21,9 +23,9 @@
         android:id="@+id/ratingRadioGroup"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
-        android:padding="25dp"
+        android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ratingHeaderTextView">
@@ -70,29 +72,29 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/cancelBT"
+        android:id="@+id/submitBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="52dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="#EC407A"
-        android:text="Cancel"
+        android:text="Submit"
         android:textColor="#ffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.913"
-        app:layout_constraintStart_toEndOf="@+id/submitBT"
+        app:layout_constraintStart_toEndOf="@+id/cancelBtn"
         app:layout_constraintTop_toBottomOf="@+id/ratingRadioGroup"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/submitBT"
+        android:id="@+id/cancelBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="92dp"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="#26C6DA"
-        android:text="Submit"
-        android:textColor="#fff "
+        android:text="Cancel"
+        android:textColor="#ffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.257"

@@ -1,6 +1,8 @@
 package com.example.catchthewords
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -9,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -18,6 +21,10 @@ class TopicActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.topic_layout)
 
+        // Change color action bar
+        val actionBar = supportActionBar
+        actionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#C2B280")))
+
         // findID
         val btnQ1: Button = findViewById(R.id.btnQ1)
         val btnQ2: Button = findViewById(R.id.btnQ2)
@@ -26,10 +33,18 @@ class TopicActivity : AppCompatActivity() {
         val btnQ5: Button = findViewById(R.id.btnQ5)
 
         val txtTopic: TextView = findViewById(R.id.txtTopic)
+        val rootView: ConstraintLayout = findViewById(R.id.rootView)
 
         // receive
         val bundle: Bundle? = intent.extras
         val topic = bundle!!.getString("TOPIC_ID")
+
+        if ("food".equals(topic.toString(),ignoreCase=true) == true){
+            rootView.setBackgroundResource(R.drawable.food_background)
+        }
+        if ("object".equals(topic.toString(),ignoreCase=true) == true){
+            rootView.setBackgroundResource(R.drawable.object_background)
+        }
 
         // request
         txtTopic.text = topic
@@ -68,14 +83,12 @@ class TopicActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_home_page -> {
-                Toast.makeText(this, "Item Homepage", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 return true
             }
 
             R.id.item_topic1 -> {
-                Toast.makeText(this, "Topic 1 selected", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, TopicActivity::class.java)
                 intent.putExtra("TOPIC_ID", "Food") // Pass the message
                 startActivity(intent)
@@ -83,7 +96,6 @@ class TopicActivity : AppCompatActivity() {
             }
 
             R.id.item_topic2 -> {
-                Toast.makeText(this, "Topic 2 selected", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, TopicActivity::class.java)
                 intent.putExtra("TOPIC_ID", "Object") // Pass the message
                 startActivity(intent)

@@ -2,6 +2,7 @@ package com.example.catchthewords
 
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -21,6 +22,10 @@ class QuestionActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.question_layout)
 
+        // Change color action bar
+        val actionBar = supportActionBar
+        actionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#568f56")))
+
         // find ID
         val btnCheck: Button = findViewById(R.id.btnCheck)
         val btnHint: Button = findViewById(R.id.btnHint)
@@ -35,7 +40,6 @@ class QuestionActivity : AppCompatActivity() {
         val questionID = intent.getIntExtra("QUESTION_ID", -1)
         val bundle: Bundle? = intent.extras
         val topicID = bundle!!.getString("TOPIC_ID")
-        Toast.makeText(this,"$topicID",Toast.LENGTH_SHORT).show()
 
         // response
         val img = getImageByID(questionID,topicID.toString())
@@ -48,7 +52,6 @@ class QuestionActivity : AppCompatActivity() {
         // action button
         btnCheck.setOnClickListener {
             val type_answer = edAnswer.text.toString()
-            Toast.makeText(this,"Check is selected $type_answer",Toast.LENGTH_SHORT).show()
             if (type_answer.equals(answer, ignoreCase = true)){
                 txtResult.text = "Correct!"
                 txtResult.setTextColor(Color.parseColor("#228B22"))
@@ -59,7 +62,6 @@ class QuestionActivity : AppCompatActivity() {
         }
 
         btnHint.setOnClickListener {
-            Toast.makeText(this,"Hint is selected",Toast.LENGTH_SHORT).show()
             var dialog_notification = PopupFragment()
             val args = Bundle().apply {
                 putString("arg_message", hint)
@@ -69,7 +71,6 @@ class QuestionActivity : AppCompatActivity() {
         }
 
         btnBack.setOnClickListener {
-            Toast.makeText(this,"Back is selected",Toast.LENGTH_SHORT).show()
             val intent = Intent(this, TopicActivity::class.java)
             intent.putExtra("TOPIC_ID", topicID) // Pass the message
             startActivity(intent)
@@ -88,14 +89,12 @@ class QuestionActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_home_page -> {
-                Toast.makeText(this, "Item Homepage", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 return true
             }
 
             R.id.item_topic1 -> {
-                Toast.makeText(this, "Topic 1 selected", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, TopicActivity::class.java)
                 intent.putExtra("TOPIC_ID", "Food") // Pass the message
                 startActivity(intent)
@@ -103,7 +102,6 @@ class QuestionActivity : AppCompatActivity() {
             }
 
             R.id.item_topic2 -> {
-                Toast.makeText(this, "Topic 2 selected", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, TopicActivity::class.java)
                 intent.putExtra("TOPIC_ID", "Object") // Pass the message
                 startActivity(intent)
