@@ -11,9 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Rate Us"
+        android:text="How do you feel about this app?"
         android:textStyle="bold"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,14 +39,6 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <RadioButton
-            android:id="@+id/vgoodRB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Very Good"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <RadioButton
             android:id="@+id/goodRB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,18 +47,18 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <RadioButton
-            android:id="@+id/satisfactoryRB"
+            android:id="@+id/sosoRB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Satisfactory"
+            android:text="So-so"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <RadioButton
-            android:id="@+id/poorRB"
+            android:id="@+id/notgoodRB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Poor"
+            android:text="Not good"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </RadioGroup>
